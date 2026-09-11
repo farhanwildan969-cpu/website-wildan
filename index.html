@@ -17,10 +17,148 @@
 <h2 id="jam">00:00:00</h2>
 <button id="mode">Mode Keren 🌙</button>
 <p id="animasi">🚀 Wildan sedang belajar coding!</p>
-9<button id="stop">⏸️ Berhenti Animasi</button>
+<button id="stop">⏸️ Berhenti Animasi</button>
 <button id="start">▶️ Lanjut Animasi</button>
 <button id="ganti">✨ Ganti Pesan</button>
 <button id="efek">🎉 Efek Keren</button>
 <button id="suka">❤️ Suka Website</button>
 <p id="jumlah">Jumlah suka: 0</p>
 <button id="reset">🔄 Reset Suka</button>
+<style>
+  h1 {
+  color: red;
+  text-align: center;
+}
+h2 {
+  margin-top: 25px;
+}
+
+p {
+  font-size: 18px;
+}
+body {
+  background: linear-gradient(135deg, #111827, #2563eb);
+  color: white;
+  padding: 30px;
+}
+h1,
+h2,
+p,
+button {
+  margin: 12px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+button:hover {
+  transform: scale(1.1);
+}
+.card {
+  background: white;
+  color: black;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+#jam {
+  text-align: center;
+  color: #60a5fa;
+  font-size: 40px;
+  margin-top: 30px;
+  text-shadow: 0 0 15px #60a5fa;
+}
+#animasi {
+  animation: gerak 3s infinite alternate;
+}
+
+@keyframes gerak {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100px);
+  }
+}
+</style>
+<script>
+  document.getElementById("sapa").onclick = function() {
+  const nama = document.getElementById("nama").value;
+  document.getElementById("pesan").innerText =
+    "Halo " + nama + "! 👋 Selamat datang di website Wildan 🚀";
+};
+function updateJam() {
+  const sekarang = new Date();
+  document.getElementById("jam").innerText =
+    sekarang.toLocaleTimeString();
+}
+
+setInterval(updateJam, 1000);
+updateJam();
+document.getElementById("mode").onclick = function() {
+  const warna = [
+    "linear-gradient(135deg, #000000, #4c1d95)",
+    "linear-gradient(135deg, #111827, #be123c)",
+    "linear-gradient(135deg, #0f172a, #047857)",
+    "linear-gradient(135deg, #172554, #7c2d12)"
+  ];
+
+  const acak = Math.floor(Math.random() * warna.length);
+  document.body.style.background = warna[acak];
+};
+document.getElementById("stop").onclick = function() {
+  document.getElementById("animasi").style.animationPlayState = "paused";
+};document.getElementById("start").onclick = function() {
+  document.getElementById("animasi").style.animationPlayState = "running";
+};
+document.getElementById("ganti").onclick = function() {
+  const pesan = [
+    "🔥 Selamat Datang di Website Wildan!",
+    "🚀 Wildan Siap Jadi Developer!",
+    "💻 Coding Itu Seru!",
+    "⚡ Terus Belajar, Terus Berkembang!"
+  ];
+
+  const acak = Math.floor(Math.random() * pesan.length);
+  document.getElementById("animasi").innerText = pesan[acak];
+};
+document.getElementById("efek").onclick = function() {
+  document.body.style.transform = "scale(1.03)";
+
+  setTimeout(function() {
+    document.body.style.transform = "scale(1)";
+  }, 300);
+};
+let jumlahSuka = 0;
+
+document.getElementById("suka").onclick = function() {
+  jumlahSuka++;
+  document.getElementById("jumlah").innerText =
+    "Jumlah suka: " + jumlahSuka;
+};
+document.getElementById("reset").onclick = function() {
+  jumlahSuka = 0;
+  document.getElementById("jumlah").innerText = "Jumlah suka: 0";
+};
+</script>
+</script>
